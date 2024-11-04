@@ -52,6 +52,17 @@ export const registerUser = async (req, res) => {
 };
 
 
+export const getUserProfile = async (req, res) => {
+    const user = {
+      _id: req.user._id,
+      name: req.user.name,
+      email: req.user.email,
+      username: req.user.username,
+      roles: req.userRoles,
+    };
+    res.status(200).json(user);
+  };
+
 export const logoutUser = async (req, res) => {
     res.cookie("jwt", "", {
       httpOnly: true,
