@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 dotenv.config();
 import cookieParser from "cookie-parser";
 const port = process.env.PORT || 5000;
-// import userRoutes from "./routes/user.routes.js";
+import userRoutes from "./routes/user.routes.js";
 import connectDB from "./config/db.config.js";
 
 connectDB()
@@ -17,7 +17,7 @@ app.use(cookieParser())
 
 
 
-// app.use("/api/users", userRoutes);
+app.use("/api/users", userRoutes);
 
 app.get("/", (req, res) => res.send("server is ready"));
 
